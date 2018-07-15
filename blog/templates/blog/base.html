@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{% block title %}Blog{% endblock %}</title>
+    <link href="{% static " css/blog.css " %}" rel="stylesheet">
+</head>
+
+<body>
+    {% block content %}
+    <div id="content">
+    </div>
+    <div id="sidebar">
+        <h2>A ChuVid Description</h2>
+    </div>
+ {% endblock %}
+
+ <!-- What I need to extend -->
+ <!-- I need to extend from base, nav bar and footer -->
+ <!-- Categories side bar
+            Technical | Not so technical 
+                Medium?--></body>
+
+</html>
