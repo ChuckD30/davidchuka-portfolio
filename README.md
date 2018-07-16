@@ -1,2 +1,2 @@
-# portfolio-project
+# davidchuka-theproject
 This is a personal project.
