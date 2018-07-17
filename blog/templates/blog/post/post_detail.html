@@ -8,5 +8,7 @@
         Published {{ this_post.publish }} by {{ this_post.author }}
     </p>
     {{ this_post.body|linebreaks }}
+    
+    <a href="{{ this_post.medium }}">Link to medium</a>
 
 {% endblock %}

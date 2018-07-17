@@ -16,5 +16,7 @@
     Published {{ post.publish }} by {{ post.author }}
 </p>
 {{ post.body|truncatewords:30|linebreaks }}
+
+<a href="{{ post.medium }}">Link to medium</a>
 {% endfor %}
 {% endblock %}
