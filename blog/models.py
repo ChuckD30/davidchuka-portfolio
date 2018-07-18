@@ -37,6 +37,6 @@ class Post (models.Model):
         return self.title
 
     def get_absolute_url(self):
-        pass
+        # pass
+        return reverse('blog:post_detail', args=[self.slug])
         #self.publish.strftime, self.publish.strftime('%m'), self.publish.strftime('%d'))
-        # return reverse('blog:post_detail', args=[self.publish.unique_for_year, self.slug])

@@ -3,13 +3,15 @@
 <title>{% block title %} My Blog {% endblock %} </title>
 
 {% block content %}
-<a href="">
+<a href="{% url 'home' %}">
 <h1>A ChuVid Description</h1>
 </a>
-{% for post in posts %}
+
+<ul>
+    {% for post in posts %}
 <h2>
     <a href="{% url 'blog:post_detail' post.slug %}">
-        {{ post.title }}
+    <li>{{ post.title }}</li>
     </a>
 </h2>
 <p class="date">
@@ -19,4 +21,8 @@
 
 <a href="{{ post.medium }}">Link to medium</a>
 {% endfor %}
+</ul>
+
+
+    {% include "blog/pagination.html" with page=page_obj %}
 {% endblock %}

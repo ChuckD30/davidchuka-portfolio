@@ -11,4 +11,8 @@
     
     <a href="{{ this_post.medium }}">Link to medium</a>
 
+    <p>
+        <a href="{% url 'blog:share_post' this_post.id %}">Share this post</a>
+    </p>
+
 {% endblock %}
