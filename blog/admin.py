@@ -7,7 +7,7 @@ from djrichtextfield.widgets import RichTextWidget
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
-    list_display = ('title', 'author', 'body', 'status', 'slug')
+    list_display = ('title', 'author', 'body', 'status', 'slug',)
     # exclude = ('author',)
     fields = (('title', 'status'),'slug','body','tags',)
     list_filter = ('status', 'created', 'publish', 'author')

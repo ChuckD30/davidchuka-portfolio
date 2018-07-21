@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 from datetime import datetime
-from taggit.managers import TaggableManager as Tagger
+from taggit.managers import TaggableManager
 
 #for published posts
 class PublishedManager(models.Manager):
@@ -30,7 +30,7 @@ class Post (models.Model):
         max_length=10, choices=STATUS_CHOICES, default='draft')
     objects = models.Manager()
     published = PublishedManager()
-    tags = Tagger()
+    tags = TaggableManager()
 
     class Meta:
         ordering = ('-publish',)
@@ -39,9 +39,7 @@ class Post (models.Model):
         return self.title
 
     def get_absolute_url(self):
-        # pass
         return reverse('blog:post_detail', args=[self.slug])
-        #self.publish.strftime, self.publish.strftime('%m'), self.publish.strftime('%d'))
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)

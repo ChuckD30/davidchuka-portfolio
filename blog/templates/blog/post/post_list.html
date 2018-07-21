@@ -6,7 +6,9 @@
 <a href="{% url 'home' %}">
 <h1>A ChuVid Description</h1>
 </a>
-
+{% if tag %}
+<h2>Posts tagged with "{{ tag.name }}"</h2>
+{% endif %}
 <ul>
     {% for post in posts %}
 <h2>
@@ -14,15 +16,22 @@
     <li>{{ post.title }}</li>
     </a>
 </h2>
-<p class="date">
+
+    <p class="tags">
+        Tags:
+        {% for tag in post.tags.all %}
+    <a href="{% url 'blog:post_list_by_tag' tag.slug %}">{{ tag.name }}</a></p>
+    {% if not forloop.last %}, {% endif %} {% endfor %}
+    
+    <p class="date">
     Published {{ post.publish }} by {{ post.author }}
 </p>
 {{ post.body|truncatewords:30|linebreaks }}
 
 <a href="{{ post.medium }}">Link to medium</a>
+
+
 {% endfor %}
 </ul>
-
-
-    {% include "blog/pagination.html" with page=page_obj %}
+{% include "blog/pagination.html" with page=posts %}
 {% endblock %}

@@ -13,6 +13,16 @@
 </h2>
 {% endwith %}
 
+<h2>Similar Posts</h2>
+{% for post in similar_posts %}
+<p>
+    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+</p>
+{% empty %}
+    There are no Similar posts yet
+{% endfor %}
+
+
 {% for comment in comments %}
 <div class="comment">
     <p class="info">
@@ -28,7 +38,7 @@
 <h2>Your comment has been added.</h2>
 {% else %}
 <h2>Add a new comment</h2>
-<form action="." method="post">
+<form method="post">
     {{ comment_form.as_p }} 
     {% csrf_token %}
     <p><input type="submit" value="Add comment"></p>
