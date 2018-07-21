@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_heroku',
+    'djrichtextfield',
+    'taggit'
 ]
 
 MIDDLEWARE = [
@@ -125,6 +127,17 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+DJRICHTEXTFIELD_CONFIG = {
+    'js': ['//tinymce.cachefly.net/4.1/tinymce.min.js'],
+    'init_template': 'djrichtextfield/init/tinymce.js',
+    'settings': {
+        'menubar': False,
+        'plugins': 'link image',
+        'toolbar': 'bold italic | link image | removeformat',
+        'width': 700
+    }
+}
 
 
 # Static files (CSS, JavaScript, Images)

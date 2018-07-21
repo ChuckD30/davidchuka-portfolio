@@ -22,7 +22,8 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('', TemplateView.as_view(template_name="pages/home.html"), name = "home"),
     path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls'))
+    path('blog/', include('blog.urls')),
+    path('djrichtextfield/', include('djrichtextfield.urls')),
     # path('', jobviews.home, name='home'),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
