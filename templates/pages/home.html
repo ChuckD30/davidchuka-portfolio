@@ -6,89 +6,31 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %} DAVID CHUKA {% endblock title %}</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+        <link rel="stylesheet" href="{% static 'css/bulma/bulmacss/bulma.min.css' %}">
         <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-        <link rel="stylesheet" href="{% static "/css/main.css" %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome/css/font-awesome.min.css' %}">
+        {% block css %}
+        {% endblock css %}
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <!-- <script src="{% static 'js/main.js' %}"></script> -->
 </head>
 
 <body>
-
-    <section class="hero is-danger is-fullheight">
-        <!--HIDDEN NAV HERE-->
+    
+    {% include "layouts/navbar.html" %}
+    {% block body %}
+    <section class="hero is-fullheight">
         <div class="hero-body">
             <div class="container animate">
-                <h1 id = "intro" class="title has-text-centered">HI, you have reached DAVID CHUKA.</h1>
-                <h2 id ="intro2" class="subtitle" style="text-align: center">
-                    how may I be of help?
-                </h2>
+                <h1 id = "intro" class="title has-text-centered">Hi, you have reached David Chuka.</h1>
+                <h2 id ="intro2" class="subtitle" style="text-align: center">Whatchu need?</h2>
             </div>
         </div>
+        <footer class="footer">
+                <p class="content has-text-centered">&copy Developed by Chucodee 2018</p>
+        </footer>
     </section>
-
-    <!--NAV-->
-    <!--TOP NAV TO HIDE-->
-    <!-- <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
-                <h1 class="title is-3">DAVID CHUKA</h1>
-            </a>
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-
-        <div class="navbar-menu">
-
-            <div class="navbar-end">
-                <a class="navbar-item">
-                    ABOUT
-                </a>
-                <a class="navbar-item">
-                    BLOG
-                </a>
-                <a class="navbar-item">
-                    PORTFOLIO
-                </a>
-                <a class="navbar-item" href="mailto:davidnwadiogbu@gmail.com">
-                    <p class="is-info">hellodavid@davidchuka.com</p>
-                </a>
-            </div>
-        </div>
-        </div> -->
-
-    <!--BOTTOM NAV TO DISPLAY-->
-    <nav class="navbar is-danger" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="">
-                <h1 class="title is-3">DAVID CHUKA</h1>
-            </a>
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-
-        <div class="navbar-menu">
-
-            <div class="navbar-end">
-                <a class="navbar-item">
-                    MEET ME
-                </a>
-                <a class="navbar-item" href="{% url 'blog:post_list' %}">
-                    BLOG
-                </a>
-                <a class="navbar-item">
-                    PORTFOLIO
-                </a>
-                <a class="navbar-item" href="mailto:davidnwadiogbu@gmail.com">
-                    <p class="is-info">hellodavid@davidchuka.com</p>
-                </a>
-            </div>
-        </div>
-        </div>
-    </nav>
+    {% endblock body %}
 
 </body>
 

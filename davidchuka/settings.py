@@ -30,10 +30,11 @@ DEBUG = os.getenv('DEBUG', True)
 
 ALLOWED_HOSTS = ['*']
 
-
+SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
+    'info.apps.InfoConfig',
     'blog.apps.BlogConfig',
     'projects.apps.ProjectsConfig',
     'store.apps.StoreConfig',
@@ -44,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'django_heroku',
     'djrichtextfield',
     'taggit'

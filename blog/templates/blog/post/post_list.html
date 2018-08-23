@@ -22,7 +22,7 @@
         {% for tag in post.tags.all %}
     <a href="{% url 'blog:post_list_by_tag' tag.slug %}">{{ tag.name }}</a></p>
     {% if not forloop.last %}, {% endif %} {% endfor %}
-    
+
     <p class="date">
     Published {{ post.publish }} by {{ post.author }}
 </p>

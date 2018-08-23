@@ -8,8 +8,7 @@ from djrichtextfield.widgets import RichTextWidget
 class PostAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     list_display = ('title', 'author', 'body', 'status', 'slug',)
-    # exclude = ('author',)
-    fields = (('title', 'status'),'slug','body','tags',)
+    fields = (('title', 'status'),'slug','body','tags', 'author')
     list_filter = ('status', 'created', 'publish', 'author')
     search_fields = ('title', 'body')
     prepopulated_fields = {'slug': ('title',)}

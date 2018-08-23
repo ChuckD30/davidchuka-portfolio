@@ -18,13 +18,18 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
+from django.contrib.sitemaps.views import sitemap
+from blog.sitemaps import PostSitemap
+
+sitemaps = { 'posts': PostSitemap, }
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name="pages/home.html"), name = "home"),
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
+    path('meetme/', include('info.urls')),
     path('djrichtextfield/', include('djrichtextfield.urls')),
-    # path('', jobviews.home, name='home'),
-]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

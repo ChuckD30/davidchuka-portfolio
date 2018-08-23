@@ -39,7 +39,7 @@
 {% else %}
 <h2>Add a new comment</h2>
 <form method="post">
-    {{ comment_form.as_p }} 
+    {{ comment_form.as_p }}
     {% csrf_token %}
     <p><input type="submit" value="Add comment"></p>
 </form>
@@ -59,4 +59,3 @@
 </p>
 
 {% endblock %}
-
