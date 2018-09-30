@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Post, Comment
 from django.db import models
 from djrichtextfield.widgets import RichTextWidget
+# from mediumeditor.admin import MediumEditorAdmin
 # Register your models here.
 
 @admin.register(Post)
@@ -15,10 +16,10 @@ class PostAdmin(admin.ModelAdmin):
     raw_id_fields = ('author',)
     ordering = ['status', 'publish']
     empty_value_display = '-empty-'
+    mediumeditor_fields = ('body',)
     formfield_overrides = {
     models.TextField: {'widget': RichTextWidget},
                     }
-
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):

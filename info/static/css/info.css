@@ -1,5 +1,19 @@
-div .column {
-    border: lightcoral;
-    border-radius: 50%;
+.about {
+  padding: 70px;
+  /* min-height: 100%; */
+  /* width: auto; */
+  /* position: relative; */
+  /* padding-bottom: 60px; */
+}
 
+
+.need-a-website {
+  padding-top: 85px;
+}
+
+.field input, textarea {
+  border: 0;
+  border-bottom:1px solid #555;
+  background: transparent;
+  border-right-width: 300px;
 }

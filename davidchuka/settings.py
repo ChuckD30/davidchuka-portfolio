@@ -16,6 +16,7 @@ from dotenv import load_dotenv
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+
 # Load .env file
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'projects.apps.ProjectsConfig',
     'store.apps.StoreConfig',
+    'mediumeditor',
     'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -145,6 +147,36 @@ DJRICHTEXTFIELD_CONFIG = {
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
+
+#MEDIUM
+MEDIUM_EDITOR_THEME = 'flat'
+MEDIUM_EDITOR_OPTIONS = {
+    'toolbar': {
+        'static': True,
+        'buttons': [
+            'bold',
+            'italic',
+            'underline',
+            'strikethrough',
+            'subscript',
+            'superscript',
+            'link',
+            'h1',
+            'h2',
+            'h3',
+            'h4',
+            'h5',
+            'h6',
+        ]
+    },
+    'paste': {
+        'forcePlainText': True,
+        'cleanPastedHTML': False,
+        'cleanReplacements': [],
+        'cleanAttrs': ['class', 'style', 'dir'],
+        'cleanTags': ['meta']
+    }
+}
 
 STATIC_URL = '/static/'
 

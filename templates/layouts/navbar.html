@@ -1,31 +1,52 @@
-<nav class="navbar is-transparent is-boxed" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item" href="{% url 'home' %}" style="font-weight:bold;">davidchuka</a>
-        <a role="button" class="navbar-burger" id='burger' aria-label="menu" aria-expanded="false" onclick="toggleBurger()">
+<nav class="navbar is-transparent is-boxed" role="navigation" aria-label="main navigation" id="navigate">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="{% url 'home' %}" style="font-weight:bold;">davidchuka</a>
+    <a role="button" class="navbar-burger" id='burger' aria-label="menu" aria-expanded="false" onclick="toggleBurger()">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
         </a>
-    </div>
+  </div>
 
-    <div class="navbar-menu" id="menuItems">
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <a href="{% url 'info:about_me' %}" class="navbar-item">Meet me</a>
-                <a href="" class="navbar-item">Blog</a>
-                <a href="" class="navbar-item">Projects</a>
-                <a href="" class="navbar-item">Store</a>
-                <a href="mailto:hello@davidchuka.me" class="navbar-item">hello@davidchuka.me</a>
-            </div>
-        </div>
+  <div class="navbar-menu" id="menuItems">
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <a href="{% url 'info:about_me' %}" class="navbar-item">Meet me</a>
+        <a href="{% url 'blog:post_list' %}" class="navbar-item">Blog</a>
+        <a href="" class="navbar-item">Projects</a>
+        <a href="" class="navbar-item">Store</a>
+        <a href="mailto:hello@davidchuka.me" class="navbar-item">hello@davidchuka.me</a>
+      </div>
     </div>
+  </div>
 </nav>
-<script>
-    const toggleBurger = () => {
-        let burgerIcon = document.getElementById('burger');
-        let dropMenu = document.getElementById('menuItems');
 
-        burgerIcon.classList.toggle('is-active');
-        dropMenu.classList.toggle('is-active');
+
+<script>
+// burger for mobile
+  const toggleBurger = () => {
+    let burgerIcon = document.getElementById('burger');
+    let dropMenu = document.getElementById('menuItems');
+
+    burgerIcon.classList.toggle('is-active');
+    dropMenu.classList.toggle('is-active');
+  }
+
+
+
+//transparency on scroll
+  var navbar = document.getElementById('navigate');
+  //var navbarItems = document.getElementsByClassName('navbar-item')
+
+  window.addEventListener('scroll', changeNav);
+  function changeNav() {
+    console.log(window.scrollTop);
+    if (window.scrollY > 50) {
+      navbar.style.background = "#5652A3";
+      navbar.style.opacity = "1";
+      //navbarItems.style.background = "black";
+    } else {
+      navbar.style.background = "transparent";
     }
+  };
 </script>

@@ -31,6 +31,7 @@ class Post (models.Model):
     objects = models.Manager()
     published = PublishedManager()
     tags = TaggableManager()
+    # pinned = models.BooleanField(default=False, unique=True)
 
     class Meta:
         ordering = ('-publish',)

@@ -2,13 +2,87 @@
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'info.css' %}">
+<link rel="stylesheet" href="{% static 'css/info.css' %}">
 {% endblock css %}
 
 
 {% block body %}
 
-{% endblock body %}
+  <div class="about">
+    <div class="columns">
+      <div class="column">
+        <img src="{% static 'img/speaking.jpg' %}" alt="baller" id="profile">
+      </div>
+      <div class="column">
+        <h3 class="has-text-weight-semibold is-size-3-mobile is-size-1-desktop has-text-dark">Who am I?</h3>
+        <p>Hi, I'm David Chuka Nwadiogbu.
+        I am a full stack web developer with over 2years of experience building websites that fit your needs.
+        Over the years through intense learning, fighting my laziness and ignorance along the way, I have picked up a few amazing skills.
+        These include, writing and building with python, django, javascript, react js, html, css etc.
+       You can check out some of the projects I've worked on right <a href="#">here</a>
+       and if you like what you see, you can <a href="#">request</a> for me to help you build amazing stuff, but I must warn ya, it will cost you a little :wink:</p>
+       <br/>
+       <p>When I'm not with Jasmine (my PC. yes, I name my devices , don't you?) you may find me playing basketball, learning something new, or just reading an amazing book</p>
+      </div>
+    </div>
 
-<body>
-</body>
+    <hr style="background-color:#80CAA5;">
+
+    <h3 class="has-text-weight-semibold is-size-1 has-text-dark has-text-centered">What I'm into</h3>
+    
+    <div class="columns">
+        <div class="column is-8">
+          <h3 class="has-text-weight-bold is-size-4 has-text-dark">Front-end Development</h3>
+          <ul class="is-size-6 has-text-weight-light">
+            <li>HTML | CSS | JAVASCRIPT</li>
+            <li>bulma | reactjs | bootstrap</li>
+          </ul>
+        </div>
+        <div class="column is-8">
+          <h3 class="has-text-weight-bold is-size-4 has-text-dark">Back-end Development</h3>
+          <ul class="is-size-6 has-text-weight-light">
+              <li>PYTHON | NODEJS</li>
+              <li>express | django</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="columns has-text-weight-bold is-size-4 has-text-dark">
+        <div class="column is-8">
+          <h3 class="has-text-weight-bold is-size-4 has-text-dark">Database Management</h3>
+          <ul class="is-size-6 has-text-weight-light">
+              <li>Postgres | MongoDB | MySQL | GraphQL</li>
+            </ul>
+        </div>
+        <div class="column is-8">
+          <h3 class="has-text-weight-bold is-size-4 has-text-dark">Dev Ops</h3>
+          <ul class="is-size-6 has-text-weight-light">
+              <li>Git | Heroku | Webpack</li>
+            </ul>
+        </div>
+    </div>
+
+  <hr style="background-color:#80CAA5;">
+
+      <!-- FORM HERE -->
+  <section class="container need-a-website">
+    <h3 class="title">Say hello to me!</h3>
+    {# <small class="subtitle">do you need a website?</small> #}
+    <form class="box hello-form" action="" method="post">
+      <div class="field">
+        <label class="label">Name</label>
+        <input type="" name="" value="">
+
+        <label class="label">Email</label>
+          <input type="" placeholder="e.g. alexjohnson@gmail.com">
+
+        <label class="label">Message</label>
+        <textarea type="text" name="" value=""></textarea>
+        </div>
+    </form>
+  </section>
+
+</div>
+{% include "layouts/footer.html" %}
+
+{% endblock body %}

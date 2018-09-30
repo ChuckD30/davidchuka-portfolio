@@ -1,9 +1,14 @@
-{% extends 'blog/base.html' %} {% block title %} {{ this_post.title }} {% endblock %} {% block content %}
+{% extends "pages/home.html" %}
+{% load static %}
+
+{% block title %} {{ this_post.title }} {% endblock %}
+
+{% block body %}
 <h1>{{ this_post.title }}</h1>
 <p class="date">
     Published {{ this_post.publish }} by {{ this_post.author }}
 </p>
-{{ this_post.body|linebreaks }}
+{{ this_post.body|safe|linebreaks }}
 
 <a href="{{ this_post.medium }}">Link to medium</a>
 
@@ -45,17 +50,10 @@
 </form>
 {% endif %}
 
-
-
-
-
-
-
-
-
-
+{% comment %}
 <p>
     <a href="{% url 'blog:share_post' this_post.id %}">Share this post</a>
 </p>
+{% endcomment %}
 
 {% endblock %}
