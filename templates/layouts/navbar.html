@@ -1,3 +1,8 @@
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+{% endblock css %}
+
 <nav class="navbar is-transparent is-boxed" role="navigation" aria-label="main navigation" id="navigate">
   <div class="navbar-brand">
     <a class="navbar-item" href="{% url 'home' %}" style="font-weight:bold;">davidchuka</a>
@@ -12,7 +17,7 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <a href="{% url 'info:about_me' %}" class="navbar-item">Meet me</a>
-        <a href="{% url 'blog:post_list' %}" class="navbar-item">Blog</a>
+        <a href="{% url 'blog:post_list' %}" class="navbar-item" id="droppedItems">Blog</a>
         <a href="" class="navbar-item">Projects</a>
         <a href="" class="navbar-item">Store</a>
         <a href="mailto:hello@davidchuka.me" class="navbar-item">hello@davidchuka.me</a>
@@ -24,29 +29,31 @@
 
 <script>
 // burger for mobile
-  const toggleBurger = () => {
-    let burgerIcon = document.getElementById('burger');
-    let dropMenu = document.getElementById('menuItems');
+const toggleBurger = () => {
+  let burgerIcon = document.getElementById('burger');
+  let dropMenu = document.getElementById('menuItems');
+  //let droppedItems = document.querySelector('droppedItems');
 
-    burgerIcon.classList.toggle('is-active');
-    dropMenu.classList.toggle('is-active');
+  burgerIcon.classList.toggle('is-active');
+  dropMenu.classList.toggle('is-active');
+  dropMenu.style.background ='#5652A3';
   }
 
 
 
 //transparency on scroll
   var navbar = document.getElementById('navigate');
-  //var navbarItems = document.getElementsByClassName('navbar-item')
-
+  let dropMenu = document.getElementById('menuItems');
+  //var navbarItems = document.querySelector('navbar-item')
   window.addEventListener('scroll', changeNav);
   function changeNav() {
-    console.log(window.scrollTop);
     if (window.scrollY > 50) {
       navbar.style.background = "#5652A3";
       navbar.style.opacity = "1";
-      //navbarItems.style.background = "black";
+      dropMenu.style.background ='#5652A3';
     } else {
       navbar.style.background = "transparent";
+      dropMenu.style.background = "transparent";
     }
   };
 </script>

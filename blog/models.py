@@ -31,7 +31,8 @@ class Post (models.Model):
     objects = models.Manager()
     published = PublishedManager()
     tags = TaggableManager()
-    # pinned = models.BooleanField(default=False, unique=True)
+    header = models.ImageField(upload_to="headers", blank=True, null=True)
+
 
     class Meta:
         ordering = ('-publish',)
@@ -41,6 +42,13 @@ class Post (models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:post_detail', args=[self.slug])
+
+class PinnedPost(models.Model):
+    pinned_post = models.ForeignKey(Post, related_name='pinned', on_delete=models.CASCADE)
+    is_pinned = models.BooleanField(default=False)
+
+    # def __str__(self):
+
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)

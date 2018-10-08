@@ -1,3 +1,12 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    top: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
 .about {
   padding: 70px;
   /* min-height: 100%; */
@@ -11,9 +20,72 @@
   padding-top: 85px;
 }
 
-.field input, textarea {
-  border: 0;
-  border-bottom:1px solid #555;
+
+.nameclass {
+  border: none;
+  border-bottom: 1px solid #80CAA5;
+  width: 65vw;
+  outline: none;
+  border-radius: 0%;
   background: transparent;
-  border-right-width: 300px;
+}
+
+.email {
+  border: none;
+  border-bottom: 1px solid #80CAA5;
+  width: 65vw;
+  outline: none;
+  border-radius: 0%;
+  background: transparent;
+}
+
+.message {
+  border: none;
+  border-bottom: 1px solid #80CAA5;
+  width: 65vw;
+  resize: none;
+  outline: none;
+  padding: 10px;
+  background: transparent;
+  border-radius: 0%;
+}
+
+form>*:not([type="submit"]) {
+  padding: 30px;
+}
+
+p input[placeholder], p textarea[placeholder]{
+  font-size: 14px;
+}
+
+.hit-me {
+  height: 50px;
+  width: 100px;
+  border: 0;
+  /* box-shadow: 3px 1px 5px #80CAA5; */
+  border-radius: 10px;
+  background: #5652A3;
+  cursor: pointer;
+  outline: none;
+}
+
+.message-container {
+  width: 250px;
+  margin: 0 auto;
+}
+
+.my-message {
+  margin-top: 100px;
+  border-radius: 5px;
+  color: aliceblue;
+  opacity: 1;
+  animation: fadeout 3s ease-out 1 forwards;
+}
+
+@keyframes fadeout {
+  to {
+    visibility: hidden;
+    opacity: 0;
+    margin-top: -23px; 
+  }
 }

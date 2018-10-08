@@ -20,6 +20,8 @@ def show_latest_posts(count=5):
 def markdown_format(text):
     return mark_safe(markdown.markdown(text))
 
+
+
 #popular Posts
 # @register.assignment_tag #deprecated
 # def get_popular_posts(count=5):

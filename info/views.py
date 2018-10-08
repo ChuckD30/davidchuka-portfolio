@@ -1,20 +1,34 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
+from django.core.mail import send_mail
+from django.contrib import messages
+# from django.http import 
+from .forms import ContactMeForm
 
 def about_me(request):
-    return render(request, 'info/info.html')
+    sent = False
+    if request.POST:
+        form = ContactMeForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            subject = "Inquiry from {}".format(cd['name'])
+            message = "Hi david chuka {}".format(cd['message'])
+            sender = cd['email']
+            send_mail(subject, message, sender, ('davidnwadiogbu@gmail.com',))
+            sent = True
+            messages.success(request, "Message Successfully sent!")
+            return HttpResponseRedirect('/meetme/')
+        else:
+            messages.error(request, "Error sending message, please try again")
+    else:
+        form = ContactMeForm()
+    return render(request, 'info/info.html', {'form':form, 'sent':sent})
 
-# def share_post(request, post_id):
-#     post = get_object_or_404(Post, id=post_id, status='published')
-#     sent = False
-#     if request.method == 'POST':
-#         form = EmailPostForm(request.POST)
-#         if form.is_valid():
-#             cd = form.cleaned_data
-#             post_url = request.build_absolute_url(post.get_absolute_url())
-#             subject = '{} ({}) recommends you reading "{}"'.format(cd['name'], cd['email'], post.title)
-#             message = 'Read "{}" at {}\n\n{}\'s comments: {}'.format(post.title, post_url, cd['name'], cd['comments'])
-#             send_mail(subject, message, 'davidnwadiogbu.com', [cd['to']])
-#             sent = True
-#     else:
-#         form = EmailPostForm()
-#     return render(request, 'blog/post/share_post.html', {'post':post, 'form':form, 'sent':sent})
+
+# {% block content %}
+# {% if sent %}
+# <h1>E-mail successfully sent</h1>
+# <p>
+# "{{ post.title }}" was successfully sent to {{ form.cleaned_data.to }}.
+# </p>
+# {% else %}
+# <h1>Share "{{ post.title }}" by e-mail</h1>

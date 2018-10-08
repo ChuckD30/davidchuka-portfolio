@@ -1,34 +1,56 @@
-{% extends "pages/home.html" %}
+{% extends "info/info.html" %}
 {% load static %}
 
 {% block title %} {{ this_post.title }} {% endblock %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock css %}
+
+
 {% block body %}
-<h1>{{ this_post.title }}</h1>
-<p class="date">
-    Published {{ this_post.publish }} by {{ this_post.author }}
-</p>
-{{ this_post.body|safe|linebreaks }}
+<div class="container post-list-container has-text-centered">
+        <div class="post-list has-text-centered">
+            <p class="has-text-weight-bold is-size-1">{{ this_post.title }}</p>
+            <p class="date">{{ this_post.publish|date:"d M Y" }} by {{ this_post.author }}</p>
+            {% if this_post.header %}
+            <img src="{{this_post.header.url}}"
+                alt="header-for-post"
+                class="header">
+            {% else %}
+            {% endif %}
+            <p class="body"></p>{{ this_post.body|safe|linebreaks }}</p>
+                    Tags: 
+                    {% for tag in this_post.tags.all %} <a href="{% url 'blog:post_list_by_tag' tag.slug %}">{{ tag.name }}</a>
+                    {% if not forloop.last %}|{% endif %}
+                    {% endfor %}
+                {% if post.medium %}
+                <a href="{{this_post.medium }}">Link to medium</a>
+                {% else %}
+                {% endif %}             
+        </div>
+</div>
+{% comment %} {% include "layouts/footer.html" %} {% endcomment %}
+{% endblock %}
 
-<a href="{{ this_post.medium }}">Link to medium</a>
-
-{% with comments.count as total_comments %}
+    
+<!-- {% with comments.count as total_comments %}
 <h2>
     {{ total_comments }} Comment{{ total_comments|pluralize }}
 </h2>
-{% endwith %}
+{% endwith %} -->
 
-<h2>Similar Posts</h2>
+<!-- <h2>Similar Posts</h2>
 {% for post in similar_posts %}
 <p>
     <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
 </p>
 {% empty %}
     There are no Similar posts yet
-{% endfor %}
+{% endfor %} -->
 
 
-{% for comment in comments %}
+<!-- {% for comment in comments %}
 <div class="comment">
     <p class="info">
         Comment {{ forloop.counter }} by {{ comment.name }} {{ comment.created }}
@@ -48,12 +70,10 @@
     {% csrf_token %}
     <p><input type="submit" value="Add comment"></p>
 </form>
-{% endif %}
+{% endif %} -->
 
 {% comment %}
 <p>
     <a href="{% url 'blog:share_post' this_post.id %}">Share this post</a>
 </p>
 {% endcomment %}
-
-{% endblock %}

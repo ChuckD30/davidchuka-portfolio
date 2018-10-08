@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'django_heroku',
     'djrichtextfield',
+    'sorl.thumbnail',
     'taggit'
 ]
 
@@ -83,10 +84,13 @@ TEMPLATES = [
 ]
 
 #EMAIL CONFIGURARTION
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'davidnwadiogbu@gmail.com'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'davidnwadiogbu@gmail.com'
+EMAIL_HOST = 'localhost'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST_USER = 'davidchuka'
 EMAIL_HOST_PASSWORD = 'debjean17'
-EMAIL_PORT = 587
+EMAIL_PORT = 25
 EMAIL_USE_TLS = True
 
 WSGI_APPLICATION = 'davidchuka.wsgi.application'

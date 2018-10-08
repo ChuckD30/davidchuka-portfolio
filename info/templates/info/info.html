@@ -1,12 +1,25 @@
 {% extends "pages/home.html" %}
 {% load static %}
 
+
+<title>{% block title %}davidchuka | Meet Me{% endblock title %}</title>
+
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/info.css' %}">
 {% endblock css %}
 
-
 {% block body %}
+
+{% if messages %}
+<div class="message-container">
+  {% for message in messages  %}
+    <p class="{{message.tags}} has-text-centered has-background-success my-message">
+      {{message|safe}}
+  {% endfor %}
+    </p>
+</div>
+{% else %}
+{% endif %}
 
   <div class="about">
     <div class="columns">
@@ -19,8 +32,8 @@
         I am a full stack web developer with over 2years of experience building websites that fit your needs.
         Over the years through intense learning, fighting my laziness and ignorance along the way, I have picked up a few amazing skills.
         These include, writing and building with python, django, javascript, react js, html, css etc.
-       You can check out some of the projects I've worked on right <a href="#">here</a>
-       and if you like what you see, you can <a href="#">request</a> for me to help you build amazing stuff, but I must warn ya, it will cost you a little :wink:</p>
+       You can check out some of the projects I've worked on right <a href="#"><span style="color:#80CAA5">here</span></a>
+       and if you like what you see, you can <a href="#"><span style="color:#80CAA5">request</span></a> for me to help you build amazing stuff, but I must warn ya, it will cost you a little 🤗</p>
        <br/>
        <p>When I'm not with Jasmine (my PC. yes, I name my devices , don't you?) you may find me playing basketball, learning something new, or just reading an amazing book</p>
       </div>
@@ -64,25 +77,21 @@
 
   <hr style="background-color:#80CAA5;">
 
-      <!-- FORM HERE -->
+  <!-- FORM HERE --> 
   <section class="container need-a-website">
-    <h3 class="title">Say hello to me!</h3>
-    {# <small class="subtitle">do you need a website?</small> #}
-    <form class="box hello-form" action="" method="post">
-      <div class="field">
-        <label class="label">Name</label>
-        <input type="" name="" value="">
+    <h3 class="has-text-weight-semibold is-size-1 has-text-dark has-text-centered">Contact me.</h3>
+    <h3 class="subtitle has-text-centered">Do you have something awesome you'd like me to be part of? Why don't you say hello here 👇🏽</h3>
 
-        <label class="label">Email</label>
-          <input type="" placeholder="e.g. alexjohnson@gmail.com">
-
-        <label class="label">Message</label>
-        <textarea type="text" name="" value=""></textarea>
-        </div>
-    </form>
+    <div class="contact-me has-text-centered">
+      <form action="" method="post">
+        {{form.as_p}}
+        {% csrf_token %}
+        <input type="submit" value="Hit Me" class="hit-me is-size-4 has-text-white">
+      </form>
+    </div>
   </section>
 
 </div>
+{% endblock body %}
 {% include "layouts/footer.html" %}
 
-{% endblock body %}
