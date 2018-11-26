@@ -1,0 +1,60 @@
+{% extends "pages/home.html" %}
+{% load static %}
+
+{% block title %}davidchuka | Projects{% endblock title %}
+
+{% block css %} <link rel="stylesheet" href="{% static 'css/projects.css' %}"> {% endblock css %}
+
+{% block body %}
+
+
+
+<div class="container">
+        <div class="projects-container">
+                        <h3 class="has-text-weight-semibold is-size-3 has-text-centered">Recent Projects</h3>
+                        <h5 class="subtitle has-text-weight-light is-size-6 has-text-centered">some recent projects I've worked on</h5>
+                <div class="columns is-multiline">
+                        {% for project in projects %}
+                        <div class="column is-6-desktop is-12-tablet is-12-mobile">
+                                <div class="projects" id="project-display">
+                                    <img src="{{project.screenshot.url}}" alt="project-screens"> 
+                                    <p class="has-text-weight-semibold">{{project.name|lower}}</p>   
+                                    <p>{{project.description}}</p>   
+                                    <a href="{{project.link}}" target="_blank" id="project-link">view this project</a>
+                                </div>  
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <p class="has-text-centered is-size-5 has-text-weight-semibold" style="margin-top:40px"><a href="{% url 'info:about_me' %}" id="project-link">Help me build something awesome!</a></p>
+
+           <hr style="background-color:#80CAA5;">
+
+           <h3 class="has-text-weight-semibold is-size-3 has-text-dark has-text-centered">What do people think?</h3>
+           <br><br>
+           
+           <div class="columns is-multiline">
+                {% for testimonial in testimonials %}
+                <div class="column is-6-desktop is-12-tablet is-12-mobile is-8">
+                   <div class="media">
+                       <figure class="media-left">
+                            <p class="image is-64x64">
+                                <img src="{{testimonial.photo.url}}" alt="testifiers" height="69" width="69" class="image is-rounded">
+                            </p>
+                       </figure>
+                      <div class="media-content">
+                          <div class="content">
+                              <p>
+                                  <strong>{{testimonial.name}}</strong>
+                                  <br>
+                                  {{testimonial.testimonial}}
+                              </p>
+                           </div>
+                       </div>
+                   </div>
+                </div>
+                {% endfor %}
+           </div>
+        </div>
+</div>
+{% include "layouts/footer.html" %}
+{% endblock body %}

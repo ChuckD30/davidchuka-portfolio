@@ -10,7 +10,7 @@ class Projects(models.Model):
     )
     name = models.CharField(max_length=200) #project NAME
     link = models.URLField(max_length=100, blank=False, null=False) #link to project
-    description = models.TextField() #project description
+    description = models.CharField(max_length=140,) #project description
     author = models.CharField(max_length=200, choices=AUTHOR_CHOICES, default='self')
     screenshot = models.ImageField(upload_to="project_screenshots", blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now)
@@ -24,10 +24,10 @@ class Projects(models.Model):
 
 
 #Recommendations from people
-class Recommendation(models.Model):
+class Testimonial(models.Model):
     name = models.CharField(max_length=100) #name of individual or company giving the recommendation
     photo = models.ImageField(upload_to="recommended_by",blank=True, null=True) #photo of recommender
-    recommendation = models.TextField() #text for recommendation
+    testimonial = models.TextField() #text for recommendation
 
     def __str__(self):
         return self.name

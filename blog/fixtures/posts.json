@@ -1,0 +1,162 @@
+[
+{
+  "model": "blog.post",
+  "pk": 7,
+  "fields": {
+    "title": "Programmer by day, Conductor by night",
+    "slug": "programmer-day-conductor-night",
+    "author": 1,
+    "body": "<p>A short story of how my 6months SIWES programme went. it begins thus</p>\r\n<p>Y'all would not believe what I experienced in just six months \ud83d\ude02 six months fam!&nbsp;</p>\r\n<p>first of all, it was crazy. sigh,&nbsp;where do I even start from? Well, I was asked to go and begin my <strong>SIWES</strong> (Student Industrial Work Experience Scheme in the month of may 2018 and at first I was like yooo awesome let's do it...little did I know what I was getting into.</p>\r\n<p><strong>I got a job</strong></p>\r\n<p>&nbsp;</p>\r\n<p>yels, I did and it was what I wanted. TUTERIA&nbsp;fam! damn always wanted to work there, always wanted to wake up 4am in the morning, always wanted to leave the house by 6am without breakfast, get to work by 8am cos of lagos&nbsp;traffic and repeat the cycle 5 times a week. No. No I didn't.</p>\r\n<p><img src=\"../../../../../media/headers/42987058480_a23e861003_o.jpg\" alt=\"speaking\" width=\"500\" height=\"333\" /></p>\r\n<p>&nbsp;</p>",
+    "publish": "2018-10-03T11:22:08.782Z",
+    "created": "2018-10-03T11:22:08.792Z",
+    "updated": "2018-10-04T14:39:52.174Z",
+    "medium": null,
+    "status": "published",
+    "header": "headers/vlcsnap-2018-09-19-22h48m17s285.png"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 8,
+  "fields": {
+    "title": "Python, my first love",
+    "slug": "python-my-first-love",
+    "author": 1,
+    "body": "<p>A short story of how I got started with python in 2016 and fell in love with python. Python, not programming.&nbsp;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error omnis alias praesentium nostrum facilis, quasi ipsum nisi sint dolore molestiae quisquam consequatur deleniti sit rerum, veritatis labore delectus fugiat iure!</p>",
+    "publish": "2018-10-03T11:26:28.004Z",
+    "created": "2018-10-03T11:26:28.013Z",
+    "updated": "2018-10-03T12:52:59.197Z",
+    "medium": null,
+    "status": "published",
+    "header": "headers/42987058480_a23e861003_o.jpg"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 9,
+  "fields": {
+    "title": "So I started a blog guys",
+    "slug": "so-i-started-blog-guys",
+    "author": 1,
+    "body": "aha! I know this post is loooonngggggggg overdue but its finally here so y'all can stop crucifying me now!! I started a blog guys, and its called 'A chuvid description' which basically was an attempt of me trying to name it 'a vivid description' but also trying not to pass on the chance of concatenating words together which miraculously happen to be the prefix and suffix of two of my names; CHUka + daVID = CHUVID. get it? see what I did there? see? never...never mind. Why I started a blog? What is this blog about? This is NOT technical blog! sorry recruiters/employers...I already gave you a list of my skills on my meet me page, and a display of cool projects I have worked on on my projects page. I do not need to have a technical blog for you to wanna hire me fam... moving on! as I said earlier, this is not a technical blog although some articles may contain tech tutorials or just tech stories and tech ways to do things. It is not a technical blog. Well, what is it then? This is a personal blog. A chuvid description is an avenue/opportunity for me to give you vivid /chuvid descriptions about my views on some certain topics or subjects that I am interested in, and that may include faith, tech, basketball and just life in general, depending on what my fingers feel like expressing. This is a completely opinonated blog and of course you're allowed to feel differently or have a different vivid descriptions on a topic, that's totally fine. Who is this blog for? Well if you can read english, then the chances of you enjoying this blog just got a little higher.",
+    "publish": "2018-10-04T12:27:05.966Z",
+    "created": "2018-10-04T12:27:05.976Z",
+    "updated": "2018-10-04T12:27:24.078Z",
+    "medium": null,
+    "status": "published",
+    "header": ""
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 10,
+  "fields": {
+    "title": "Testing my pagination",
+    "slug": "testing-my-pagination",
+    "author": 1,
+    "body": "<p>Basically a dummy post to see if my pagination works correctly and in the manner and way that it should work.</p>",
+    "publish": "2018-10-04T12:28:19.622Z",
+    "created": "2018-10-04T12:28:19.627Z",
+    "updated": "2018-10-04T12:28:19.627Z",
+    "medium": null,
+    "status": "published",
+    "header": ""
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 11,
+  "fields": {
+    "title": "I need to add more blog posts",
+    "slug": "i-need-add-more-blog-posts",
+    "author": 1,
+    "body": "<p>Still testing the authenticity of my pagination</p>",
+    "publish": "2018-10-04T12:33:52.202Z",
+    "created": "2018-10-04T12:33:52.208Z",
+    "updated": "2018-10-04T12:33:52.208Z",
+    "medium": null,
+    "status": "published",
+    "header": ""
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 12,
+  "fields": {
+    "title": "My django girls experience",
+    "slug": "my-django-girls-experience",
+    "author": 1,
+    "body": "<p>Okay this is one post I am completety excited to share with you</p>",
+    "publish": "2018-10-04T12:34:35.775Z",
+    "created": "2018-10-04T12:34:35.780Z",
+    "updated": "2018-10-04T12:34:35.780Z",
+    "medium": null,
+    "status": "published",
+    "header": ""
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 13,
+  "fields": {
+    "title": "Dear Bestie",
+    "slug": "dear-bestie",
+    "author": 1,
+    "body": "<p>You are worth way more than gold!!! keep shining</p>",
+    "publish": "2018-10-04T12:35:28.027Z",
+    "created": "2018-10-04T12:35:28.030Z",
+    "updated": "2018-10-04T12:38:26.804Z",
+    "medium": null,
+    "status": "published",
+    "header": ""
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 14,
+  "fields": {
+    "title": "Lagos, the mad house",
+    "slug": "lagos-mad-house",
+    "author": 1,
+    "body": "<p>Story of how lagos can mentally destroy you.</p>",
+    "publish": "2018-10-04T12:35:57.659Z",
+    "created": "2018-10-04T12:35:57.664Z",
+    "updated": "2018-10-04T12:37:59.570Z",
+    "medium": null,
+    "status": "published",
+    "header": ""
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 15,
+  "fields": {
+    "title": "Using Markdown",
+    "slug": "using-markdown",
+    "author": 1,
+    "body": "<p>I don't even know how to use markdown and I am probably not qualified for this post but hey....I know markdown, even tho I dont&nbsp;really know how to use it, I know its benefits and disadvantages, its pros and cons</p>",
+    "publish": "2018-10-04T12:37:30.550Z",
+    "created": "2018-10-04T12:37:30.560Z",
+    "updated": "2018-10-04T12:37:30.560Z",
+    "medium": null,
+    "status": "published",
+    "header": ""
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 16,
+  "fields": {
+    "title": "So I started a blog",
+    "slug": "so-i-started-blog",
+    "author": 1,
+    "body": "aha! I know this post is loooonngggggggg overdue but its finally here so y'all can stop crucifying me now!!\r\n\r\nI started a blog guys, and its called \"A chuvid description\" which basically was an attempt of me trying to name it \"a vivid description\" but also trying not to pass on the chance of concatenating words together which miraculously happen to be the prefix and suffix of two of my names; CHUka + daVID = CHUVID. get it? see what I did there? see? never...never mind.\r\n\r\nWhy I started a blog?\r\n\r\nWhat is this blog about?\r\nThis is NOT technical blog! sorry recruiters/employers...I already gave you a list of my skills on my meet me page, and a display of cool projects I have worked on on my projects page. I do not need to have a technical blog for you to wanna hire me fam...\r\nmoving on! as I said earlier, this is not a technical blog although some articles may contain tech tutorials or just tech stories and tech ways to do things. It is not a technical blog. Well, what is it then? \r\nThis is a personal blog. A chuvid description is an avenue/opportunity for me to give you vivid /chuvid descriptions about my views on some certain topics or subjects that I am interested in, and that may include faith, tech, basketball and just life in general, depending on what my fingers feel like expressing.\r\nThis is a completely opinonated blog and of course you're allowed to feel differently or have a different vivid descriptions on a topic, that's totally fine.\r\n\r\nWho is this blog for?\r\nWell if you can read english, then the chances of you enjoying this blog just got a little higher.",
+    "publish": "2018-10-05T00:35:26.456Z",
+    "created": "2018-10-05T00:35:26.460Z",
+    "updated": "2018-10-05T00:35:26.460Z",
+    "medium": null,
+    "status": "published",
+    "header": "headers/ehen.jpeg"
+  }
+}
+]

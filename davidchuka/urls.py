@@ -24,12 +24,13 @@ from blog.sitemaps import PostSitemap
 sitemaps = { 'posts': PostSitemap, }
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name="pages/home.html"), name = "home"),
+    path('', TemplateView.as_view(template_name="pages/home.html"), name="home"),
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
     path('meetme/', include('info.urls')),
     path('projects/', include('projects.urls')),
-    path('djrichtextfield/', include('djrichtextfield.urls')),
+    path('summernote/', include('django_summernote.urls')),
+    path('comments/', include('django_comments_xtd.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
 if settings.DEBUG:

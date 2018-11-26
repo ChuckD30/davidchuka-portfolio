@@ -16,10 +16,10 @@
   <div class="navbar-menu" id="menuItems">
     <div class="navbar-end">
       <div class="navbar-item">
-        <a href="{% url 'info:about_me' %}" class="navbar-item">Meet me</a>
-        <a href="{% url 'blog:post_list' %}" class="navbar-item" id="droppedItems">Blog</a>
-        <a href="" class="navbar-item">Projects</a>
-        <a href="" class="navbar-item">Store</a>
+         <a href="{% url 'info:about_me' %}" class="navbar-item" {% if current_page == "info" %} style="color: #CCE1FF" {% endif %}>Meet me</a>
+        <a href="{% url 'blog:post_list' %}" class="navbar-item" {% if current_page == "blog" %} style="color: #CCE1FF" {% endif %}>Blog</a>
+        <a href="{% url 'projects:projects' %}" class="navbar-item" {% if current_page == "projects" %} style="color: #CCE1FF" {% endif %}>Projects</a>
+        <!-- <a href="" class="navbar-item">Store</a> -->
         <a href="mailto:hello@davidchuka.me" class="navbar-item">hello@davidchuka.me</a>
       </div>
     </div>
@@ -50,10 +50,10 @@ const toggleBurger = () => {
     if (window.scrollY > 50) {
       navbar.style.background = "#5652A3";
       navbar.style.opacity = "1";
-      dropMenu.style.background ='#5652A3';
+      //dropMenu.style.background ='#5652A3';
     } else {
       navbar.style.background = "transparent";
-      dropMenu.style.background = "transparent";
+      //dropMenu.style.background = "transparent";
     }
   };
 </script>

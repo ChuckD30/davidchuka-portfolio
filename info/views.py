@@ -21,7 +21,7 @@ def about_me(request):
             messages.error(request, "Error sending message, please try again")
     else:
         form = ContactMeForm()
-    return render(request, 'info/info.html', {'form':form, 'sent':sent})
+    return render(request, 'info/info.html', {'form':form, 'sent':sent, 'current_page':'info'})
 
 
 # {% block content %}

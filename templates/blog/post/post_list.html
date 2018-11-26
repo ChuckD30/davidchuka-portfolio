@@ -1,0 +1,75 @@
+{% extends "pages/home.html" %}
+{% load static %}
+
+{% block title %}davidchuka | Blog{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock css %}
+
+{% block body %}
+<section class="hero is-medium">
+        <div class="hero-body">
+            <div class="container has-text-centered blog-intro">
+                <h1 class="title">A Chuvid Description.</h1>
+                <h2 class="subtitle">A vivid description about my views and thoughts</h2>
+            </div>
+        </div>
+</section>
+
+<div class="container post-list-container has-text-centered">
+    {% if tag %}
+    <h3 class="is-size-3 has-text-weight-semibold" id="post-tagged">Articles tagged with "{{ tag.name }}"</h3>
+    <br><br><br>
+    {% endif %}
+    
+    {% for post in posts %}
+    <div class="post-list has-text-centered">
+    {% if post.pinned %}
+        <span class="has-text-weight-semibold"><span class="icon" id="pinned"><i class="fas fa-thumbtack" style="transform: rotate(-25deg);"></i></span>Pinned article</span>
+        {% if pinned_post.header %}
+            <img src="{{pinned_post.header.url}}"
+            alt="header-for-pinned_post"
+            class="header"/>
+        {% endif %}
+                <a href="{% url 'blog:post_detail' pinned_post.slug %}">
+                    <h3 class="is-size-3 has-text-weight-semibold" id="post-title">{{ pinned_post.title }}</h3>
+                </a>
+                <p id="date-author">{{ pinned_post.publish|date:"d M Y" }} by {{ pinned_post.author }}</p>
+                {{ pinned_post.body|safe|truncatechars:200|linebreaks }}<a href="{% url 'blog:post_detail' pinned_post.slug %}" style="display:inline;">read more</a>
+                    <br>
+                {% for tag in pinned_post.tags.all %} <a href="{% url 'blog:post_list_by_tag' tag.slug %}" class="button is-size-7 pull-left" id="tags">{{ tag.name }}</a>
+                    {% if not forloop.last %} {% endif %}
+                {% endfor %}
+            {% if pinned_post.medium %}
+            <a href="{{ pinned_post.medium }}">Link to medium</a>
+            {% endif %}             
+    {% else %}
+        {% if post.header %}
+            <img src="{{post.header.url}}"
+            alt="header-for-post"
+            class="header"/>
+        {% endif %}
+                <a href="{% url 'blog:post_detail' post.slug %}">
+                    <h3 class="is-size-3 has-text-weight-semibold" id="post-title">{{ post.title }}</h3>
+                </a>
+                <p id="date-author">{{ post.publish|date:"d M Y" }} by {{ post.author }}</p>
+                {{ post.body|safe|truncatechars:200|linebreaks }}<a href="{% url 'blog:post_detail' post.slug %}">read more</a>
+                <p></p>
+                {% for tag in post.tags.all %} <a href="{% url 'blog:post_list_by_tag' tag.slug %}" class="button is-size-7 pull-left has-text-weight-semibold" id="tags">{{ tag.name }}</a>
+                    {% if not forloop.last %} {% endif %}
+                {% endfor %}
+            {% if post.medium %}
+                <a href="{{ post.medium }}">Link to medium</a>
+            {% else %}
+            {% endif %}             
+    {% endif %}
+    </div>
+{% endfor %}
+{% include "blog/pagination.html" with page=posts %}
+</div>
+</div>
+{% include "layouts/footer.html" %}
+{% endblock %}
+
+

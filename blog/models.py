@@ -25,30 +25,23 @@ class Post (models.Model):
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    medium = models.URLField(max_length=250, null =True, blank = True) #link to the post on medium
+    medium = models.URLField(max_length=250, null=True, blank=True) #link to the post on medium
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default='draft')
     objects = models.Manager()
     published = PublishedManager()
     tags = TaggableManager()
     header = models.ImageField(upload_to="headers", blank=True, null=True)
-
+    pinned = models.BooleanField(default=False, blank=True)
 
     class Meta:
-        ordering = ('-publish',)
+        ordering = ('-pinned','-publish',)
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
         return reverse('blog:post_detail', args=[self.slug])
-
-class PinnedPost(models.Model):
-    pinned_post = models.ForeignKey(Post, related_name='pinned', on_delete=models.CASCADE)
-    is_pinned = models.BooleanField(default=False)
-
-    # def __str__(self):
-
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
@@ -63,4 +56,4 @@ class Comment(models.Model):
         ordering = ('created',)
 
     def __str__(self):
-        return 'Comment by {} on {}'.format(self.name,self.post)
+        return 'Comment by {} on {}'.format(self.name, self.post)

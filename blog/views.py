@@ -8,14 +8,8 @@ from django.core.mail import send_mail
 from taggit.models import Tag
 from django.db.models import Count
 
-# class PostListView(ListView):
-#     queryset = Post.published.all()
-#     context_object_name = 'posts'
-#     paginate_by = 3
-#     template_name = 'blog/post/post_list.html'
-
 def post_list(request, tag_slug=None):
-    # pinned_post = Post.objects.get()
+    pinned_post = Post.published.get(pinned=True)
     object_list = Post.published.all()
     tag = None
     if tag_slug:
@@ -31,8 +25,8 @@ def post_list(request, tag_slug=None):
     except EmptyPage:
         # If page is out of range deliver last page of results
         posts = paginator.page(paginator.num_pages)
-    context={'page': page,'posts': posts,'tag': tag}
-    return render(request, 'blog/post/post_list.html',context)
+    context = {'page': page, 'posts': posts, 'pinned_post': pinned_post, 'tag': tag, 'current_page':'blog'}
+    return render(request, 'blog/post/post_list.html', context)
 
 def post_detail(request, post_slug):
     this_post = get_object_or_404(Post, slug=post_slug) #get post, pass in slug from the url
@@ -46,11 +40,15 @@ def post_detail(request, post_slug):
             new_comment.save() #save
     else:
         com_form = CommentForm()
+    #Show latest posts
+    latest_posts = Post.published.exclude(slug=this_post.slug)\
+                                 .order_by('-publish')[:2]
     #List of similar Posts
     post_tags_ids = this_post.tags.values_list('id', flat=True)
     similar_posts = Post.published.filter(tags__in=post_tags_ids).exclude(id=this_post.id)
     similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags','-publish')[:4]
-    return render(request, 'blog/post/post_detail.html', {'this_post': this_post, 'comments':comments, 'comment_form':com_form, 'similar_posts':similar_posts})
+    context = {'this_post': this_post, 'comments':comments, 'comment_form':com_form, 'similar_posts':similar_posts, 'latest_posts':latest_posts, 'current_page':'blog'}
+    return render(request, 'blog/post/post_detail.html', context)
 
 def share_post(request, post_id):
     post = get_object_or_404(Post, id=post_id, status='published')

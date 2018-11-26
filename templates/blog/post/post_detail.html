@@ -1,0 +1,132 @@
+{% extends "blog/post/post_list.html" %}
+{% load comments %}
+{% load static %}
+
+
+{% block title %} {{ this_post.title }} {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock css %}
+
+
+{% block body %}
+<div class="container post-list-container">
+        <div class="post-list has-text-centered">
+            <h3 class="has-text-weight-bold is-size-1">{{ this_post.title }}</h3>
+            <p class="date">{{ this_post.publish|date:"d M Y" }} by {{ this_post.author }}</p>
+            {% if this_post.header %}
+            <img src="{{this_post.header.url}}"
+            alt="header-for-post"
+            class="header" />
+            {% endif %}
+            <p class="body">{{ this_post.body|safe|linebreaks }}</p>
+            <br>
+            {% for tag in this_post.tags.all %} <a href="{% url 'blog:post_list_by_tag' tag.slug %}" class="button is-size-7 pull-left" id="tags">{{ tag.name }}</a>
+            {% if not forloop.last %}    {% endif %}
+            {% endfor %}
+            <!-- Comments!! -->
+            <br><br><br><br>
+            <div class="fb-comments" data-href="{{this_post.get_absolute_url}}" data-numposts="5"></div>
+            <!-- {% get_comment_count for this_post as comment_count %}
+            <div class="text-center" style="padding-top:20px">
+                {{ comment_count }} comments have been posted.
+            </div> -->
+
+            <!-- {% if this_post.allow_comments %}
+                <div class="comment">
+                    <h4 class="text-center">Your comment</h4> -->
+                    <!-- {% render_comment_form for this_post %} -->
+                <!-- </div>
+                {% endif %} -->
+
+                {% if post.medium %}
+                <a href="{{this_post.medium }}">Link to medium</a>
+                {% endif %}             
+        </div>
+
+    <div class="extras">
+
+        {% if similar_posts %}
+        <section class="pull-left latest-posts-section">
+            <h4 class="is-size-5 has-text-weight-light" id="latest-articles">Related articles</h4>
+            <div style="background-color:#80CAA5; height:3px;"></div>
+            <div class="columns is-multiline" style="margin-top:5px;">
+                {% for similar_post in similar_posts %}
+                <div class="column is-6-desktop is-12-tablet is-12-mobile">
+                        <a href="{{ similar_post.get_absolute_url }}" class="similar">
+                            <div class="similar-posts" id="post-display">
+                                {% if similar_post.header %}
+                                <img src="{{similar_post.header.url}}" alt="latest-posts">
+                                {% else %}
+                                {% endif %}
+                                <h4 class="has-text-weight-bold is-size-4 has-text-centered has-text-dark">{{ similar_post.title }}</h4>
+                            </div>
+                        </a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% else %}
+        {% endif %}
+
+        <section class="pull-left latest-posts-section">
+        <br><br><br>
+            <h4 class="is-size-5 has-text-weight-light" id="latest-articles">Latest Articles</h4>
+            <div style="background-color:#80CAA5; height:3px;"></div>
+                <div class="columns is-multiline" style="margin-top:5px;">
+                    {% for latest_post in latest_posts %}
+                    <div class="column is-6-desktop is-12-tablet is-12-mobile">
+                        <a href="{{ latest_post.get_absolute_url }}" class="latest">
+                        <div class="latest-posts" id="post-display">
+                            {% if latest_post.header %}
+                            <img src="{{latest_post.header.url}}" alt="latest-posts">
+                            {% else %}
+                            {% endif %}
+                                <h4 class="has-text-weight-bold is-size-4 has-text-centered has-text-dark">{{ latest_post.title }}</h4>
+                        </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+        </section>
+    </div>
+</div>
+
+{% include "layouts/footer.html" %}
+{% endblock %}
+
+    
+<!-- {% with comments.count as total_comments %}
+<h2>
+    {{ total_comments }} Comment{{ total_comments|pluralize }}
+</h2>
+{% endwith %} -->
+
+<!-- {% for comment in comments %}
+<div class="comment">
+    <p class="info">
+        Comment {{ forloop.counter }} by {{ comment.name }} {{ comment.created }}
+    </p>
+    {{ comment.body|linebreaks }}
+</div>
+{% empty %}
+<p>There are no comments yet.</p>
+{% endfor %}
+
+{% if new_comment %}
+<h2>Your comment has been added.</h2>
+{% else %}
+<h2>Add a new comment</h2>
+<form method="post">
+    {{ comment_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Add comment"></p>
+</form>
+{% endif %} -->
+
+{% comment %}
+<p>
+    <a href="{% url 'blog:share_post' this_post.id %}">Share this post</a>
+</p>
+{% endcomment %}
