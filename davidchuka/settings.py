@@ -154,7 +154,7 @@ MEDIA_URL = '/media/'
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 try:
-    from local import *
-except:
+    from .local_settings import *
+except ImportError:
     pass
     
