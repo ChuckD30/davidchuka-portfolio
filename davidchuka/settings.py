@@ -18,7 +18,8 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 SECRET_KEY = os.getenv('SECRET_KEY')
-
+import django
+django.setup()
 
 DEBUG = True
 
