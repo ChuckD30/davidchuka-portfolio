@@ -40,8 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
-    'django_comments_xtd',
-    'django_comments',
     'django_summernote',
     'django_heroku',
     'sorl.thumbnail',
