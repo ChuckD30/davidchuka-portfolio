@@ -18,8 +18,6 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 SECRET_KEY = os.getenv('SECRET_KEY')
-import django
-django.setup()
 
 DEBUG = True
 
@@ -42,10 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
-    #'django_comments_xtd',
-    #'django_comments',
+    'django_comments_xtd',
+    'django_comments',
     'django_summernote',
-    #'django_heroku',
+    'django_heroku',
     'sorl.thumbnail',
     'taggit'
 ]
