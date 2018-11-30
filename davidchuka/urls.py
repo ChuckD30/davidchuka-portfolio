@@ -30,7 +30,6 @@ urlpatterns = [
     path('meetme/', include('info.urls')),
     path('projects/', include('projects.urls')),
     path('summernote/', include('django_summernote.urls')),
-    path('comments/', include('django_comments_xtd.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
 if settings.DEBUG:

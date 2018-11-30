@@ -19,7 +19,6 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -41,8 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
-    'django_comments_xtd',
-    'django_comments',
     'django_summernote',
     'django_heroku',
     'sorl.thumbnail',
@@ -145,3 +142,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
