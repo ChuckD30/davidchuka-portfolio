@@ -11,5 +11,4 @@ urlpatterns = [
     path('tag/<slug:tag_slug>', views.post_list, name='post_list_by_tag'),
     # path('<int:post_id>/share/', views.share_post, name='share_post'),
     # path('feed/', LatestPostsFeed(), name='post_feed'),
-    # path('', views.PostListView.as_view(), name='post_list'),
 ]

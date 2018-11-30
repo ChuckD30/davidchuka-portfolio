@@ -78,8 +78,8 @@ TEMPLATES = [
 ]
 
 #EMAIL CONFIGURARTION
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = 'davidnwadiogbu@gmail.com'
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_HOST_USER = 'davidnwadiogbu@gmail.com'
 EMAIL_HOST = 'localhost'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #EMAIL_PORT = 25
@@ -87,10 +87,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 WSGI_APPLICATION = 'davidchuka.wsgi.application'
 
-
-#COOKIE CONFIGURATION
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
@@ -140,11 +136,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-LOGIN_REDIRECT_URL = '/'
-
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'davidchuka/static'), ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

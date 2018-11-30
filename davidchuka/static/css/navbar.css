@@ -1,0 +1,41 @@
+/* NAV BAR SECTION */
+
+a.navbar-item {
+    color: #80CAA5;
+}
+
+a.navbar-item:hover{
+    color: #CCE1FF;
+    background: transparent;
+}
+
+.navbar {
+    color: black;
+    opacity: 1;
+    background: transparent;
+    font-weight: bold;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 20000;
+}
+
+.navbar-burger:hover {
+    background: transparent;
+    color: black;
+    font-weight: bold;
+}
+
+.navbar-menu {
+    background: none;
+}
+
+.navbar-menu:hover {
+    background: transparent;
+}
+
+a#burger span{
+    border: 1.5px solid #80CAA5;
+    width: 25px;
+}

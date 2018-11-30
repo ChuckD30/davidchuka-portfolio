@@ -1,0 +1,30 @@
+.footer {
+    margin-top: 40px;
+    width:100%;
+    background: #fafcfb;
+    color: gray;
+}
+
+span.icon {
+    padding: 30px;
+}
+
+a {
+    color: gray;
+}
+
+#facebook:hover {
+    color: #3b5998;
+}
+
+#github:hover {
+    color: #333;
+}
+
+#twitter:hover {
+    color: #1da1f2;
+}
+
+#linkedin:hover {
+    color: #0077b5;
+}
