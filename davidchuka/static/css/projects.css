@@ -1,0 +1,40 @@
+.projects-container {
+    padding: 100px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#project-display {
+    max-width: 100%;
+    padding: 5px;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+
+h3 {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+#project-link {
+    color: #5652A3;
+    text-align: center;
+}
+
+#project-link:hover{
+    color:#80CAA5;
+}
+
+
+@media screen and (max-width: 600px) 
+and (min-width: 200px) {
+    .projects-container {
+        padding: 5px;
+    }
+
+    h3 {
+        padding-top: 100px;
+    }
+}

@@ -1,0 +1,72 @@
+/* Post list */
+
+.hero {
+    background: black url(../img/osamuyi.jpg) center/cover;
+}
+
+.title,.subtitle{
+    overflow: hidden; 
+    margin: 0 auto; 
+    letter-spacing: .10em;
+    color: white;
+}
+
+.header {
+    width: 100%;
+}
+
+.post-list-container {
+    padding-top: 100px;
+    max-width: 750px;   
+}
+
+.post-list {
+    padding-bottom: 70px;
+}
+
+#post-title {
+    color: #80CAA5;
+}
+
+#post-title:hover{
+    color:#CCE1FF;
+}
+
+#date-author {
+    font-style: italic;
+    color: #00AEEF;
+}
+
+#tags {
+    margin-left: 10px;
+    margin-bottom: 25px;
+}
+
+#tags:hover {
+    color: #80CAA5;
+    border: 1px solid #80CAA5;
+}
+
+/* detail */
+
+#post-display {
+    max-width: 100%;
+    padding: 5px;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+@media screen and (max-width: 600px) 
+and (min-width: 200px) {
+    .post-list {
+        padding: 25px;
+    }
+}
+
+@media screen and (max-width: 600px) 
+and (min-width: 200px) {
+    .extras {
+        padding: 5px;
+    }
+}

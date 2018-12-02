@@ -1,0 +1,81 @@
+/* HERO */
+#intro{
+    overflow: hidden; 
+    margin: 0 auto; 
+    color: beige;
+    letter-spacing: .10em;
+    /* width: 40ch;
+    animation: typewriter0 3s steps(30,end) forwards,
+               blink-caret0 .65s step-end 7; */
+}
+
+#intro2 {
+    /* border-right: .15em solid black; */
+    overflow: hidden; 
+    margin: 0 auto; 
+    color: beige;
+    letter-spacing: .10em;
+    font-weight: bold;
+    /* width: 16ch; */
+    /* animation: typewriter1 2s steps(20, end) forwards,
+               blink-caret1 .65s step-end infinite;
+    animation-delay: 4.5s; */
+}
+
+/* @keyframes typewriter0 {
+    from {
+        width: 0;
+    }
+    99.9%{
+        border-right : .15em solid black;
+    }
+}
+
+@keyframes blink-caret0 {
+    from {
+    border-right: .15em solid black;
+    }
+    50% { border-color: transparent; }
+}
+
+@keyframes typewriter1 {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    1% {
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes blink-caret1 {
+    50% {
+        border-color: transparent;
+    }
+} */
+
+.hero {
+    background: black url(../img/test1.jpg) center/cover;
+}
+
+.intro {
+    font-family:'Fira Sans', sans-serif;
+    line-height: 3.0;
+    letter-spacing: -0.02em
+}
+
+@media (max-width: 1024px) {
+    .hero {
+        background: black url(../img/test2.jpg) center/cover;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        background: black url(../img/code1.jpg) center/cover;
+}

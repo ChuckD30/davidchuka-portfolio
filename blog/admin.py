@@ -4,7 +4,7 @@ from django_summernote.admin import SummernoteModelAdmin
 from .models import Post, Comment
 
 @admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(SummernoteModelAdmin):
     date_hierarchy = 'created'
     list_display = ('title', 'author', 'body', 'status', 'slug',)
     fields = (('title', 'status', 'pinned', ), 'slug', 'body', 'tags', 'author', 'header',)
@@ -14,7 +14,7 @@ class PostAdmin(admin.ModelAdmin):
     raw_id_fields = ('author',)
     ordering = ['-publish', 'status']
     empty_value_display = '-empty-'
-    # summernote_fields = ('body',)
+    summernote_fields = ('body',)
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
