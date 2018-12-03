@@ -25,7 +25,7 @@ sitemaps = { 'posts': PostSitemap, }
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name="pages/home.html"), name="home"),
-    path('tsktsk/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
     path('meetme/', include('info.urls')),
     path('projects/', include('projects.urls')),
