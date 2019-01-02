@@ -24,9 +24,8 @@
             {% for tag in this_post.tags.all %} <a href="{% url 'blog:post_list_by_tag' tag.slug %}" class="button is-size-7 pull-left" id="tags">{{ tag.name }}</a>
             {% if not forloop.last %}    {% endif %}
             {% endfor %}
-            <!-- fb Comments!! -->
+            <!-- Comments!! -->
             <br><br><br><br>
-            <div class="fb-comments" data-href="{{this_post.get_absolute_url}}" data-numposts="5"></div>
                 {% if post.medium %}
                 <a href="{{this_post.medium }}">Link to medium</a>
                 {% endif %}             
@@ -35,6 +34,28 @@
     {% comment %} EXTRAS {% endcomment %}
 
     <div class="extras">
+
+                <div id="disqus_thread"></div>
+                <script>
+
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                var disqus_config = function () {
+                this.page.url = {{this_post.get_absolute_url}};  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = {{this_post.slug}}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://davidchuka-1.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
         {% if similar_posts %}
         <section class="pull-left latest-posts-section">
             <h4 class="is-size-5 has-text-weight-light" id="latest-articles">Related articles</h4>
