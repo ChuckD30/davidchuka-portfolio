@@ -1,0 +1,30 @@
+# General
+# ------------------------------------------------------------------------------
+# DJANGO_READ_DOT_ENV_FILE=True
+DJANGO_SECRET_KEY=yCxQXEqO5WVHxRsXMsz8frRXqutj0MoUOj2bdeSRi75cX0kcXzwhWnKTPIvz91PN
+DATABASE_URL=postgres://davidchuka:davidchukasupersecret@postgres/davidchuka
+DJANGO_SETTINGS_MODULE=davidchuka.settings
+DJANGO_ALLOWED_HOSTS=.davidchuka.me
+STATIC_ROOT=/var/davidchuka_static
+MEDIA_ROOT=/var/davidchuka_media
+
+# Security
+# ------------------------------------------------------------------------------
+# TIP: better off using DNS, however, redirect is OK too
+DJANGO_SECURE_SSL_REDIRECT=False
+
+# Email
+# ------------------------------------------------------------------------------
+DJANGO_SERVER_EMAIL=
+
+# Gunicorn
+# ------------------------------------------------------------------------------
+WEB_CONCURRENCY=4
+
+# Sentry
+# ------------------------------------------------------------------------------
+# SENTRY_DSN=
+
+# Redis
+# ------------------------------------------------------------------------------
+# REDIS_URL=redis://redis:6379/0
