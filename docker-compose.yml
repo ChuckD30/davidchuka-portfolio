@@ -1,0 +1,61 @@
+version: '2'
+
+volumes:
+  postgres_data:
+  postgres_backup:
+  django_static:
+  django_media:
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/production/django/Dockerfile
+    image: davidchuka_production_django
+    volumes:
+      - django_static:/var/davidchuka_static
+      - django_media:/var/davidchuka_media
+    depends_on:
+      - postgres
+      # - redis
+    env_file:
+      - ./.envs/.production/.django
+      - ./.envs/.production/.postgres
+    command: /start
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    image: davidchuka_production_postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - postgres_backup:/backups
+    env_file:
+      - ./.envs/.production/.postgres
+    ports:
+      - "0.0.0.0:5432:5432"
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./compose/production/nginx/Dockerfile
+    image: davidchuka_production_nginx
+    depends_on:
+      - django
+    volumes:
+      - django_static:/var/davidchuka_static
+      - django_media:/var/davidchuka_media
+      - /docker-volumes/data/letsencrypt:/data/letsencrypt
+      - /docker-volumes/etc/letsencrypt/live/davidchuka.me/fullchain.pem:/etc/letsencrypt/live/davidchuka.me/fullchain.pem
+      - /docker-volumes/etc/letsencrypt/live/davidchuka.me/privkey.pem:/etc/letsencrypt/live/davidchuka.me/privkey.pem
+      - ./compose/production/nginx/dhparam-2048.pem:/etc/ssl/certs/dhparam-2048.pem
+    ports:
+      - "0.0.0.0:80:80"
+      - "0.0.0.0:443:443"
+
+  # redis:
+  #   image: redis:3.2
+  #   volumes:
+  #   - /var/lib/redis
+  #   - /var/log/redis/

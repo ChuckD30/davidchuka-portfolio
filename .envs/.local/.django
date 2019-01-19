@@ -1,0 +1,10 @@
+# General
+# ------------------------------------------------------------------------------
+DATABASE_URL=postgres://davidchuka:davidchukapwd@localhost:5432/davidchuka
+DJANGO_SETTINGS_MODULE=davidchuka.settings
+
+#DJANGO_EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
+
+# Redis
+# ------------------------------------------------------------------------------
+# REDIS_URL=redis://redis:6379/0

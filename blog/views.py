@@ -9,7 +9,6 @@ from taggit.models import Tag
 from django.db.models import Count
 
 def post_list(request, tag_slug=None):
-    pinned_post = Post.published.get(pinned=True)
     object_list = Post.published.all()
     tag = None
     if tag_slug:
@@ -25,7 +24,7 @@ def post_list(request, tag_slug=None):
     except EmptyPage:
         # If page is out of range deliver last page of results
         posts = paginator.page(paginator.num_pages)
-    context = {'page': page, 'posts': posts, 'pinned_post': pinned_post, 'tag': tag, 'current_page':'blog'}
+    context = {'page': page, 'posts': posts, 'tag': tag, 'current_page':'blog'}
     return render(request, 'blog/post/post_list.html', context)
 
 def post_detail(request, post_slug):

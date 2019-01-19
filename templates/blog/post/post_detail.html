@@ -1,5 +1,4 @@
 {% extends "blog/post/post_list.html" %}
-{% load comments %}
 {% load static %}
 
 
@@ -27,19 +26,6 @@
             {% endfor %}
             <!-- Comments!! -->
             <br><br><br><br>
-            <div class="fb-comments" data-href="{{this_post.get_absolute_url}}" data-numposts="5"></div>
-            <!-- {% get_comment_count for this_post as comment_count %}
-            <div class="text-center" style="padding-top:20px">
-                {{ comment_count }} comments have been posted.
-            </div> -->
-
-            <!-- {% if this_post.allow_comments %}
-                <div class="comment">
-                    <h4 class="text-center">Your comment</h4> -->
-                    <!-- {% render_comment_form for this_post %} -->
-                <!-- </div>
-                {% endif %} -->
-
                 {% if post.medium %}
                 <a href="{{this_post.medium }}">Link to medium</a>
                 {% endif %}             
@@ -48,6 +34,28 @@
     {% comment %} EXTRAS {% endcomment %}
 
     <div class="extras">
+
+                <div id="disqus_thread"></div>
+                <script>
+
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                var disqus_config = function () {
+                this.page.url = {{this_post.get_absolute_url}};  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = {{this_post.slug}}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://davidchuka-1.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
         {% if similar_posts %}
         <section class="pull-left latest-posts-section">
             <h4 class="is-size-5 has-text-weight-light" id="latest-articles">Related articles</h4>
@@ -96,38 +104,3 @@
 
 {% include "layouts/footer.html" %}
 {% endblock %}
-
-    
-<!-- {% with comments.count as total_comments %}
-<h2>
-    {{ total_comments }} Comment{{ total_comments|pluralize }}
-</h2>
-{% endwith %} -->
-
-<!-- {% for comment in comments %}
-<div class="comment">
-    <p class="info">
-        Comment {{ forloop.counter }} by {{ comment.name }} {{ comment.created }}
-    </p>
-    {{ comment.body|linebreaks }}
-</div>
-{% empty %}
-<p>There are no comments yet.</p>
-{% endfor %}
-
-{% if new_comment %}
-<h2>Your comment has been added.</h2>
-{% else %}
-<h2>Add a new comment</h2>
-<form method="post">
-    {{ comment_form.as_p }}
-    {% csrf_token %}
-    <p><input type="submit" value="Add comment"></p>
-</form>
-{% endif %} -->
-
-{% comment %}
-<p>
-    <a href="{% url 'blog:share_post' this_post.id %}">Share this post</a>
-</p>
-{% endcomment %}
