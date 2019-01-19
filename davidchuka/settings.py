@@ -56,15 +56,6 @@ SITE_ID = 1
 
 INSTALLED_APPS = [
 
-    'info.apps.InfoConfig',
-
-    'blog.apps.BlogConfig',
-
-    'projects.apps.ProjectsConfig',
-
-    'store.apps.StoreConfig',
-
-    'django_extensions',
 
     'django.contrib.admin',
 
@@ -81,6 +72,16 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     'django.contrib.sitemaps',
+
+    'info.apps.InfoConfig',
+
+    'blog.apps.BlogConfig',
+
+    'projects.apps.ProjectsConfig',
+
+    'store.apps.StoreConfig',
+
+    'django_extensions',
 
     'django_summernote',
 
