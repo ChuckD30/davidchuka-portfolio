@@ -1,6 +1,5 @@
 # General
 # ------------------------------------------------------------------------------
-# DJANGO_READ_DOT_ENV_FILE=True
 DJANGO_SECRET_KEY=yCxQXEqO5WVHxRsXMsz8frRXqutj0MoUOj2bdeSRi75cX0kcXzwhWnKTPIvz91PN
 DATABASE_URL=postgres://davidchuka:davidchukasupersecret@postgres/davidchuka
 DJANGO_SETTINGS_MODULE=davidchuka.settings

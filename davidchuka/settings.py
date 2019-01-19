@@ -280,12 +280,12 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 
-try:
+# try:
 
-    from .local_settings import *
+#     from .local_settings import *
 
-except ImportError:
+# except ImportError:
 
-    pass
+#     pass
 
 
