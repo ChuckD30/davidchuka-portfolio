@@ -1,7 +1,7 @@
 import os
 from fabric.api import local, run, cd, env, sudo, settings, lcd
 from fabric.decorators import hosts
-env.hosts = ['root@davidchuka.me']
+env.hosts = ['davidchuka@davidchuka.me']
 code_dir = '/home/davidchuka/davidchuka-theproject'
 
 def show_logs_django():

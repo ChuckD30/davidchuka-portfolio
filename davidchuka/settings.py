@@ -267,7 +267,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.getenv('STATIC_ROOT', os.path.join(BASE_DIR, 'static'))
->>>>>>> b21f6fbda1ea8bc0f0d3417d93bc73cf0c77d0dc
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'davidchuka/static'), ]
 
