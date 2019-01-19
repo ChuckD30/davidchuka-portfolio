@@ -1,6 +1,6 @@
 # General
 # ------------------------------------------------------------------------------
-SECRET_KEY=yCxQXEqO5WVHxRsXMsz8frRXqutj0MoUOj2bdeSRi75cX0kcXzwhWnKTPIvz91PN
+DJANGO_SECRET_KEY=yCxQXEqO5WVHxRsXMsz8frRXqutj0MoUOj2bdeSRi75cX0kcXzwhWnKTPIvz91PN
 DATABASE_URL=postgres://davidchuka:davidchukasupersecret@postgres/davidchuka
 DJANGO_SETTINGS_MODULE=davidchuka.settings
 DJANGO_ALLOWED_HOSTS=www.davidchuka.me,davidchuka.me

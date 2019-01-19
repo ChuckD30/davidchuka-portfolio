@@ -43,7 +43,6 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 DEBUG = True
 
 
-print(os.getenv('DJANGO_ALLOWED_HOSTS').split(","))
 ALLOWED_HOSTS = [] or os.getenv('DJANGO_ALLOWED_HOSTS').split(",")
 
 
