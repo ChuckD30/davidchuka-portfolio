@@ -79,6 +79,7 @@
         {% else %}
         {% endif %}
 
+        {% if latest_posts %}
         <section class="pull-left latest-posts-section">
         <br><br><br>
             <h4 class="is-size-5 has-text-weight-light" id="latest-articles">Latest Articles</h4>
@@ -99,6 +100,9 @@
                     {% endfor %}
                 </div>
         </section>
+        {% else %}
+        {% endif %}
+        
     </div>
 </div>
 
