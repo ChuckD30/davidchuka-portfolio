@@ -36,8 +36,8 @@
                     <h3 class="is-size-3 has-text-weight-semibold" id="post-title">{{ post.title }}</h3>
                 </a>
                 <p id="date-author">{{ post.publish|date:"d M Y" }} by {{ post.author }}</p>
-                {{ post.body|safe|truncatechars:200|linebreaks }}<a href="{% url 'blog:post_detail' post.slug %}" style="display:inline;">read more</a>
-                    <br>
+                {{ post.body|safe|truncatechars:200|linebreaks }}<a href="{% url 'blog:post_detail' post.slug %}">read more</a>
+                <p></p>
                 {% for tag in post.tags.all %} <a href="{% url 'blog:post_list_by_tag' tag.slug %}" class="button is-size-7 pull-left" id="tags">{{ tag.name }}</a>
                     {% if not forloop.last %} {% endif %}
                 {% endfor %}
